@@ -1,19 +1,27 @@
 import { Component } from '@angular/core';
 
+export interface Post {
+  title: string
+  text: string
+  id?: number
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-basics';
-  img = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=='
-  inputValue = '';
+  posts: Post[] = [
+    {title: 'I want lern angular', text: '!!!', id: 1},
+    {title: 'I want lern angular2121', text: '222', id: 2},
+  ]
 
-  constructor() {
-
+  updatePost(post: Post) {
+    this.posts.unshift(post);
   }
-  onInput(event: KeyboardEvent) {
-    this.inputValue = (<HTMLInputElement>event.target).value;
+
+  removePost(id: number) {
+    this.posts = this.posts.filter(item => item.id !== id);
   }
 }

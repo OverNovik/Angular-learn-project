@@ -1,6 +1,7 @@
 <div class="post">
-  <h2>Post title</h2>
+  <h2>{{post.title}}</h2>
 
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore praesentium incidunt excepturi eveniet. Impedit, minus error nemo eum quae magni mollitia repellendus dolore, blanditiis, nam repellat qui exercitationem eius tenetur.</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore praesentium incidunt excepturi eveniet. Impedit, minus error nemo eum quae magni mollitia repellendus dolore, blanditiis, nam repellat qui exercitationem eius tenetur.</p>
+  <p>{{post.text}}</p>
+  <button (click)="removePost()">Delete</button>
+  <ng-content></ng-content>
 </div>
